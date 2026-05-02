@@ -103,6 +103,21 @@
     box-shadow 0.2s;
   appearance: none;
 }
+
+.contact-form input[type="date"],
+.contact-form input[type="time"] {
+  -webkit-appearance: textfield; 
+  appearance: textfield;
+  padding: 0.65em 0.9em;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  min-height: 40px;
+}
+
+.contact-form input[type="date"]::-webkit-datetime-edit,
+.contact-form input[type="time"]::-webkit-datetime-edit {
+  padding: 0 0.08em;
+}
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
