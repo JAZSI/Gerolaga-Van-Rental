@@ -1,0 +1,103 @@
+@use "../variables" as *;
+
+.about {
+  background: $cSurface;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 3.5rem;
+}
+.about-img-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: $shadowM;
+  position: relative;
+}
+.about-text-content {
+  grid-column: 2 / 4;
+  transition-delay: 0.1s;
+}
+.about-img-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: linear-gradient(145deg, #e4e2dc, #d4d1cb);
+}
+.about-img-ph img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.about-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.about-intro {
+  font-size: 0.95rem;
+  color: $cInk;
+  line-height: 1.75;
+  margin-bottom: 1.6rem;
+}
+.detail-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: $r;
+  border: 1px solid $cBorder;
+  background: $cBg;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.detail-pill:hover {
+  border-color: $cAccent;
+  box-shadow: 0 0 0 3px $cAccentL;
+}
+.detail-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: $cAccentL;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.detail-icon svg {
+  width: 15px;
+  height: 15px;
+  color: $cAccent;
+}
+.detail-text {
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: $cInk;
+}
+.detail-sub {
+  font-size: 0.73rem;
+  color: $cMuted;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-text-content {
+    grid-column: 1;
+  }
+  .about-details {
+    grid-template-columns: 1fr;
+  }
+}

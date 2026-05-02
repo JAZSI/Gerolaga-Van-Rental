@@ -1,0 +1,93 @@
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $fontSans;
+  background: $cBg;
+  color: $cText;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+/* ─── SECTION HELPERS ─────────────────────────────────── */
+section {
+  padding: 6rem 8vw;
+}
+.section-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $cAccent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.section-tag::after {
+  content: "";
+  flex: 0 0 20px;
+  height: 1px;
+  background: $cAccent;
+}
+h2.section-title {
+  font-family: $fontSerif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: $cHeading;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+.section-sub {
+  font-size: 0.9rem;
+  color: $cMuted;
+  max-width: 480px;
+  margin-top: 0.6rem;
+  line-height: 1.7;
+}
+.divider {
+  border: none;
+  border-top: 1px solid $cBorder;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  section {
+    padding: 4rem 6vw;
+  }
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+  form {
+    grid-template-columns: 1fr;
+  }
+  form .full {
+    grid-column: 1;
+  }
+}
+
+/* ─── FADE-IN ANIMATION ───────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

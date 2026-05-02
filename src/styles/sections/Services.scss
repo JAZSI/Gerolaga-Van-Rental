@@ -1,0 +1,94 @@
+@use "../variables" as *;
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: $cBorder;
+  margin-top: 3rem;
+  border-radius: 10px;
+  overflow: hidden;
+  transition-delay: 0.1s;
+}
+.service-card {
+  background: $cSurface;
+  padding: 1.8rem 1.6rem;
+  transition: background 0.25s;
+  cursor: default;
+  position: relative;
+}
+.service-card:hover {
+  background: $cAccentL;
+}
+.service-card:hover .service-icon {
+  background: $cAccent;
+}
+.service-card:hover .service-icon svg {
+  color: #fff;
+}
+.service-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: $cBg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: background 0.25s;
+}
+.service-icon svg {
+  width: 16px;
+  height: 16px;
+  color: $cAccent;
+  transition: color 0.25s;
+}
+.service-arrow {
+  position: absolute;
+  top: 1rem;
+  right: 1.6rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: $cBg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.25s;
+}
+.service-arrow svg {
+  width: 16px;
+  height: 16px;
+  color: $cAccent;
+  transition: color 0.25s;
+}
+.service-card:hover .service-arrow {
+  background: $cAccent;
+  transform: translate(2px, -2px);
+}
+.service-card:hover .service-arrow svg {
+  color: #fff;
+}
+.service-name {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: $cHeading;
+  margin-bottom: 0.3rem;
+}
+.service-desc {
+  font-size: 0.75rem;
+  color: $cMuted;
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
