@@ -1,4 +1,3 @@
-import React from 'react';
 import "../styles/sections/Hero.scss";
 import { Phone } from 'lucide-react';
 

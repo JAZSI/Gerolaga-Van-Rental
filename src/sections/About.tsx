@@ -1,6 +1,5 @@
-import React from 'react';
 import "../styles/sections/About.scss";
-import { Image, Truck, Users, MapPin, Zap, Clock } from 'lucide-react';
+import { Truck, Users, MapPin, Zap, Clock } from 'lucide-react';
 
 export default function About() {
   return (
