@@ -1,5 +1,6 @@
 import "../styles/sections/Hero.scss";
-import { Phone } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 export default function Hero() {
   return (
@@ -16,7 +17,7 @@ export default function Hero() {
         <div className="hero-actions">
           <a className="btn-primary" href="#contact">Book a Trip</a>
           <a className="btn-ghost" href="#contact">
-            <Phone size={14} />
+            <FontAwesomeIcon icon={faPhone} />
             Call Us
           </a>
         </div>

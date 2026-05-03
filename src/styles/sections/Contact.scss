@@ -154,6 +154,37 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+.contact-actions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.contact-actions .form-submit {
+  grid-column: auto;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.contact-actions .form-submit.messenger {
+  background: #0084ff;
+  color: #fff;
+}
+
+.contact-actions .form-submit.whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
+.contact-actions .form-submit.messenger:hover:not(:disabled),
+.contact-actions .form-submit.whatsapp:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
 .form-message {
   grid-column: 1 / -1;
   padding: 0.75rem 1rem;
@@ -174,5 +205,8 @@
   }
   .contact-form .full {
     grid-column: 1;
+  }
+  .contact-actions {
+    grid-template-columns: 1fr;
   }
 }

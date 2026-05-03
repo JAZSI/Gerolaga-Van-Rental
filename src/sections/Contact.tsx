@@ -1,33 +1,37 @@
 import { useState } from 'react';
 import "../styles/sections/Contact.scss";
-import { Phone, Users, Music2 } from 'lucide-react';
-import { sendViaMessenger, getFormData } from '../services/messengerService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faFacebookMessenger, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { sendViaMessenger, sendViaWhatsApp, getFormData } from '../services/messenger';
+
+type ContactChannel = 'messenger' | 'whatsapp';
 
 const CONTACTS = [
   {
     label: 'Dito Network',
     value: '0994-507-7836',
     href: 'tel:+639945077836',
-    icon: Phone,
+    icon: faPhone,
   },
   {
     label: 'Smart Network',
     value: '0947-795-3961',
     href: 'tel:+639477953961',
-    icon: Phone,
+    icon: faPhone,
   },
   {
     label: 'Facebook',
     value: 'Gerolaga Van Rental',
     href: 'https://www.facebook.com/profile.php?id=61577497282138',
-    icon: Users,
+    icon: faFacebookF,
     external: true,
   },
   {
     label: 'TikTok',
     value: 'G Adventures',
     href: 'https://www.tiktok.com/@g.adventuresss',
-    icon: Music2,
+    icon: faTiktok,
     external: true,
   },
 ];
@@ -36,25 +40,26 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleSend = (channel: ContactChannel) => {
     const formData = getFormData();
-    
-    // Validate required fields
+
     if (!formData.date || !formData.pickupLocation || !formData.dropoffLocation) {
       setMessage('Please fill in Date, Pick-up, and Drop-off locations.');
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
-      sendViaMessenger(formData);
-      
-      // Reset form
+      if (channel === 'whatsapp') {
+        sendViaWhatsApp(formData);
+      } else {
+        sendViaMessenger(formData);
+      }
+
       (document.querySelector('.contact-form') as HTMLFormElement)?.reset();
-      setMessage('Redirecting to Messenger...');
+
+      setMessage(channel === 'whatsapp' ? 'Opening WhatsApp...' : 'Opening Messenger...');
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       setMessage('Error sending inquiry. Please try again.');
@@ -62,6 +67,11 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSend('messenger');
   };
   return (
     <section className="contact" id="contact">
@@ -80,7 +90,7 @@ export default function Contact() {
                 href={href}
                 {...(external && { target: '_blank', rel: 'noreferrer' })}
               >
-                <div className="num-icon"><Icon size={16} /></div>
+                <div className="num-icon"><FontAwesomeIcon icon={Icon} /></div>
                 <div>
                   <span className="num-label">{label}</span>
                   <span className="num-val">{value}</span>
@@ -123,9 +133,21 @@ export default function Contact() {
             <textarea id="notes" placeholder="Type of trip, special requests, etc."></textarea>
           </div>
           {message && <div className="form-message">{message}</div>}
-          <button className="form-submit" type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Send Inquiry →'}
-          </button>
+          <div className="contact-actions full">
+            <button className="form-submit messenger" type="submit" disabled={isSubmitting}>
+              <FontAwesomeIcon icon={faFacebookMessenger} />
+              {isSubmitting ? 'Sending...' : 'Messenger'}
+            </button>
+            <button
+              className="form-submit whatsapp"
+              type="button"
+              onClick={() => handleSend('whatsapp')}
+              disabled={isSubmitting}
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+              WhatsApp
+            </button>
+          </div>
         </form>
       </div>
     </section>

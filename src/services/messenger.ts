@@ -36,7 +36,7 @@ export const sendViaMessenger = (
 
 export const sendViaWhatsApp = (
   data: BookingFormData,
-  phoneNumber: string = '+639945077836'
+  phoneNumber: string = '+639477953961'
 ): void => {
   const message = formatBookingMessage(data);
   const encodedMessage = encodeURIComponent(message);

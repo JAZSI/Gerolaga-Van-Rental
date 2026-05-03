@@ -1,14 +1,16 @@
 import React from 'react';
 import "../styles/sections/Services.scss";
-import { Users, Calendar, Globe, Briefcase, Plane, ArrowUpRight } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faUsers, faCalendarDays, faGlobe, faBriefcase, faPlaneDeparture, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
-const SERVICES: { Icon: React.ComponentType<any>; title: string; desc: string }[] = [
-  { Icon: Users, title: 'Company Outings', desc: 'Team building trips and corporate outings, stress-free.' },
-  { Icon: Users, title: 'Family Reunions', desc: 'Group outings for families and friends, any occasion.' },
-  { Icon: Calendar, title: 'Events & Seminars', desc: 'Reliable transport to and from any event or seminar.' },
-  { Icon: Globe, title: 'Out-of-Town Tours', desc: 'Explore beautiful destinations across Luzon comfortably.' },
-  { Icon: Briefcase, title: 'Business Tours', desc: 'Professional transport for business trips and site visits.' },
-  { Icon: Plane, title: 'Port Service', desc: 'Airport and seaport transfers done on time, every time.' },
+const SERVICES: { Icon: IconDefinition; title: string; desc: string }[] = [
+  { Icon: faUsers, title: 'Company Outings', desc: 'Team building trips and corporate outings, stress-free.' },
+  { Icon: faUsers, title: 'Family Reunions', desc: 'Group outings for families and friends, any occasion.' },
+  { Icon: faCalendarDays, title: 'Events & Seminars', desc: 'Reliable transport to and from any event or seminar.' },
+  { Icon: faGlobe, title: 'Out-of-Town Tours', desc: 'Explore beautiful destinations across Luzon comfortably.' },
+  { Icon: faBriefcase, title: 'Business Tours', desc: 'Professional transport for business trips and site visits.' },
+  { Icon: faPlaneDeparture, title: 'Port Service', desc: 'Airport and seaport transfers done on time, every time.' },
 ];
 
 export default function Services() {
@@ -24,10 +26,10 @@ export default function Services() {
         {SERVICES.map(({ Icon, title, desc }) => (
           <div className="service-card" key={title}>
             <div className="service-arrow">
-              <ArrowUpRight size={18} />
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </div>
             <div className="service-icon">
-              <Icon size={20} />
+              <FontAwesomeIcon icon={Icon} />
             </div>
             <div className="service-name">{title}</div>
             <div className="service-desc">{desc}</div>

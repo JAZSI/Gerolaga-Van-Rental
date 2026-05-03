@@ -1,5 +1,6 @@
 import "../styles/sections/About.scss";
-import { Truck, Users, MapPin, Zap, Clock } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTruck, faUsers, faLocationDot, faBolt, faClock } from '@fortawesome/free-solid-svg-icons';
 
 export default function About() {
   return (
@@ -23,7 +24,7 @@ export default function About() {
           <div className="about-details">
             <div className="detail-pill">
               <div className="detail-icon">
-                <Truck />
+                <FontAwesomeIcon icon={faTruck} />
               </div>
               <div>
                 <span className="detail-text">Toyota Hiace Commuter</span>
@@ -33,7 +34,7 @@ export default function About() {
 
             <div className="detail-pill">
               <div className="detail-icon">
-                <Users />
+                <FontAwesomeIcon icon={faUsers} />
               </div>
               <div>
                 <span className="detail-text">15-Seater Capacity</span>
@@ -43,7 +44,7 @@ export default function About() {
 
             <div className="detail-pill">
               <div className="detail-icon">
-                <MapPin />
+                <FontAwesomeIcon icon={faLocationDot} />
               </div>
               <div>
                 <span className="detail-text">General Trias / Imus, Cavite</span>
@@ -53,7 +54,7 @@ export default function About() {
 
             <div className="detail-pill">
               <div className="detail-icon">
-                <Zap />
+                <FontAwesomeIcon icon={faBolt} />
               </div>
               <div>
                 <span className="detail-text">Premium Comfort</span>
@@ -63,7 +64,7 @@ export default function About() {
 
             <div className="detail-pill">
               <div className="detail-icon">
-                <Clock />
+                <FontAwesomeIcon icon={faClock} />
               </div>
               <div>
                 <span className="detail-text">24/7 Availability</span>
@@ -73,7 +74,7 @@ export default function About() {
 
             <div className="detail-pill">
               <div className="detail-icon">
-                <Users />
+                <FontAwesomeIcon icon={faUsers} />
               </div>
               <div>
                 <span className="detail-text">Professional Drivers</span>

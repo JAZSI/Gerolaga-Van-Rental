@@ -1,37 +1,38 @@
 import {
-  BadgeDollarSign,
-  MapPinned,
-  ShieldCheck,
-  Snowflake,
-  Sparkles,
-} from 'lucide-react';
+  faDollarSign,
+  faLocationDot,
+  faShieldHalved,
+  faSnowflake,
+  faStar,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../styles/sections/Why.scss";
 
 const WHY_ITEMS = [
   {
     title: 'Strong Air Conditioning',
     desc: 'Stay cool and comfortable no matter how long the trip.',
-    icon: Snowflake,
+    icon: faSnowflake,
   },
   {
     title: 'Affordable Rates',
     desc: "Premium service that doesn't break the budget.",
-    icon: BadgeDollarSign,
+    icon: faDollarSign,
   },
   {
     title: 'Vaccinated Driver',
     desc: 'Your safety is our priority, fully vaccinated and responsible.',
-    icon: ShieldCheck,
+    icon: faShieldHalved,
   },
   {
     title: 'Sanitized Van',
     desc: 'Cleaned and sanitized before every trip for your peace of mind.',
-    icon: Sparkles,
+    icon: faStar,
   },
   {
     title: 'Cavite to All of Luzon',
     desc: 'We travel anywhere in Luzon, no destination too far.',
-    icon: MapPinned,
+    icon: faLocationDot,
   },
 ];
 
@@ -50,7 +51,7 @@ export default function Why() {
               <div className="why-card" key={title}>
                 <div className="why-head">
                   <div className="why-icon" aria-hidden="true">
-                    <Icon size={14} strokeWidth={2} />
+                    <FontAwesomeIcon icon={Icon} />
                   </div>
                   <div className="why-name">{title}</div>
                 </div>
