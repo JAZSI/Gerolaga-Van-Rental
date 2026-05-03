@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "../styles/sections/Contact.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faFacebookMessenger, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { sendViaMessenger, sendViaWhatsApp, getFormData } from '../services/messenger';
 
